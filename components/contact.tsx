@@ -64,8 +64,8 @@ export function Contact() {
     },
     {
       "name": "kakao",
-      "icon": "message",
-      "url": "http://pf.kakao.com/_xnfDCC/chat"
+      "icon": "discord",
+      "url": "https://pf.kakao.com/_xnfDCC?fbclid=PAZXh0bgNhZW0CMTEAAacxZOu7vIFf4YDYEwGOKGrNjfUTKvnW-aE2NpTU-FxKg0PvAWjKMlUCke3TGw_aem_AIAdqZeDplSMIDgTyvmV5Q"
     }
   ]
   
