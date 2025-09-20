@@ -1,75 +1,153 @@
 "use client"
 
 import { ArrowUp, Heart, Youtube, Globe, Mail } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { EditableText } from "@/components/editable/editable-text"
 import { useInlineEditor } from "@/contexts/inline-editor-context"
+import { defaultConfig as headerDefaultConfig } from "@/components/header"
+
+type StoredNavItem = {
+  name: string
+  url: string
+  icon?: string
+  show?: boolean
+}
+
+type FooterInfo = {
+  showFooter: boolean
+  name: string
+  description: string
+  showQuickLinks: boolean
+  quickLinksTitle: string
+  showContactInfo: boolean
+  contactTitle: string
+  phone: string
+  email: string
+  location: string
+  copyright: string
+  showMadeWith: boolean
+  madeWithLocation: string
+  showTemplateCredit: boolean
+  templateCreator: {
+    name: string
+    youtube: string
+    website: string
+    email: string
+  }
+  showScrollTop: boolean
+}
+
+const FALLBACK_NAV_ITEMS: Array<{ name: string; url: string }> = [
+  { name: "병원소개", url: "#about" },
+  { name: "진료과목", url: "#projects" },
+  { name: "오시는길", url: "#contact" },
+]
+
+const FOOTER_DEFAULT_INFO: FooterInfo = {
+  showFooter: true,
+  name: "이로동물의료센터",
+  description: "반려동물의 치과/심장전문 동물병원",
+  showQuickLinks: true,
+  quickLinksTitle: "빠른 링크",
+  showContactInfo: true,
+  contactTitle: "연락처",
+  phone: "02)887-1575",
+  email: "iroanimal@naver.com",
+  location: "서울시 관악구 남부순환로 1678, 1층/2층",
+  copyright: "© 2025 IAMC. All rights reserved.",
+  showMadeWith: true,
+  madeWithLocation: "Mrbaeksang",
+  showTemplateCredit: true,
+  templateCreator: {
+    name: "백상",
+    youtube: "https://www.youtube.com/@Mrbaeksang95/videos",
+    website: "https://devcom.kr/",
+    email: "qortkdgus95@gmail.com",
+  },
+  showScrollTop: true,
+}
+
+const mapVisibleNavItems = (items?: StoredNavItem[]) => {
+  if (!items) return []
+  return items
+    .filter((item) => item.show !== false && Boolean(item.name) && Boolean(item.url))
+    .map((item) => ({ name: item.name, url: item.url }))
+}
+
+const getHeaderDefaultNavItems = () => {
+  const mapped = mapVisibleNavItems(headerDefaultConfig.items as StoredNavItem[])
+  return mapped.length > 0 ? mapped : FALLBACK_NAV_ITEMS
+}
 
 export function Footer() {
   const { getData, saveData, isEditMode, saveToFile } = useInlineEditor()
   const currentYear = new Date().getFullYear()
-  
-  // 헤더의 네비게이션 데이터 가져오기 - 기본값 설정
-  const [navItems, setNavItems] = useState<Array<{name: string, url: string}>>([
-    { name: "병원소개", url: "#about" },
-    { name: "진료과목", url: "#projects" },
-    { name: "오시는길", url: "#contact" }
-  ])
+
+  const [navItems, setNavItems] = useState<Array<{ name: string; url: string }>>(() => getHeaderDefaultNavItems())
+  const [footerInfo, setFooterInfo] = useState<FooterInfo>(() => ({
+    ...FOOTER_DEFAULT_INFO,
+    templateCreator: { ...FOOTER_DEFAULT_INFO.templateCreator },
+  }))
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  // 기본 데이터
-  const defaultInfo = {
-    showFooter: true,
-    name: "이로동물의료센터",
-    description: "반려동물의 치과/심장전문 동물병원",
-    showQuickLinks: true,
-    quickLinksTitle: "빠른 링크",
-    showContactInfo: true,
-    contactTitle: "연락처",
-    phone: "02)887-1575",
-    email: "iroanimal@naver.com",
-    location: "서울시 관악구 남부순환로 1678, 1층/2층",
-    copyright: "© 2025 IAMC. All rights reserved.",
-    showMadeWith: true,
-    madeWithLocation: "Mrbaeksang",
-    showTemplateCredit: true,
-    templateCreator: {"name":"백상","youtube":"https://www.youtube.com/@Mrbaeksang95/videos","website":"https://devcom.kr/","email":"qortkdgus95@gmail.com"},
-    showScrollTop: true
-  }
+  const applyFooterInfo = useCallback((savedData: Partial<FooterInfo> | null | undefined) => {
+    if (savedData) {
+      setFooterInfo({
+        ...FOOTER_DEFAULT_INFO,
+        ...savedData,
+        showMadeWith: FOOTER_DEFAULT_INFO.showMadeWith,
+        madeWithLocation: FOOTER_DEFAULT_INFO.madeWithLocation,
+        showTemplateCredit: FOOTER_DEFAULT_INFO.showTemplateCredit,
+        templateCreator: { ...FOOTER_DEFAULT_INFO.templateCreator },
+      })
+    } else {
+      setFooterInfo({
+        ...FOOTER_DEFAULT_INFO,
+        templateCreator: { ...FOOTER_DEFAULT_INFO.templateCreator },
+      })
+    }
+  }, [])
 
-  const [footerInfo, setFooterInfo] = useState(defaultInfo)
+  const applyNavConfig = useCallback((navConfig?: { items?: StoredNavItem[] } | null) => {
+    if (navConfig?.items) {
+      const visible = mapVisibleNavItems(navConfig.items)
+      setNavItems(visible.length > 0 ? visible : getHeaderDefaultNavItems())
+    } else {
+      setNavItems(getHeaderDefaultNavItems())
+    }
+  }, [])
 
   // localStorage에서 데이터 로드
   useEffect(() => {
-    // 푸터 정보 로드
-    const savedData = getData('footer-info')
-    if (savedData) {
-      // Made with와 템플릿 크레딧은 편집 불가이므로 기본값 유지
-      setFooterInfo({ 
-        ...defaultInfo, 
-        ...savedData,
-        showMadeWith: defaultInfo.showMadeWith,
-        madeWithLocation: defaultInfo.madeWithLocation,
-        showTemplateCredit: defaultInfo.showTemplateCredit,
-        templateCreator: defaultInfo.templateCreator
-      })
-    }
-    
-    // 헤더 네비게이션 데이터도 함께 로드
-    const navConfig = getData('nav-config') as { items?: Array<{name: string, url: string, icon: string, show: boolean}> } | null
-    if (navConfig?.items) {
-      // show가 true인 항목만 필터링하여 푸터에 표시
-      const visibleItems = navConfig.items
-        .filter(item => item.show)
-        .map(item => ({ name: item.name, url: item.url }))
-      if (visibleItems.length > 0) {
-        setNavItems(visibleItems)
+    const savedFooter = getData('footer-info') as Partial<FooterInfo> | null
+    applyFooterInfo(savedFooter)
+
+    const navConfig = getData('nav-config') as { items?: StoredNavItem[] } | null
+    applyNavConfig(navConfig)
+  }, [applyFooterInfo, applyNavConfig, getData, isEditMode])
+
+  useEffect(() => {
+    const handleDataUpdate = (event: Event) => {
+      const { detail } = event as CustomEvent<{ key: string; value: unknown }>
+      if (!detail) return
+
+      if (detail.key === 'nav-config') {
+        applyNavConfig(detail.value as { items?: StoredNavItem[] })
+      }
+
+      if (detail.key === 'footer-info') {
+        applyFooterInfo(detail.value as Partial<FooterInfo>)
       }
     }
-  }, [isEditMode])
+
+    window.addEventListener('inline-editor-data-updated', handleDataUpdate as EventListener)
+    return () => {
+      window.removeEventListener('inline-editor-data-updated', handleDataUpdate as EventListener)
+    }
+  }, [applyFooterInfo, applyNavConfig])
 
   const updateFooterInfo = async (key: string, value: string | boolean) => {
     // Made with와 템플릿 크레딧 관련 필드는 수정 불가

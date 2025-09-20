@@ -4,6 +4,7 @@ import { About } from "@/components/about"
 import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { FloatingQuickActions } from "@/components/floating-quick-actions"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
+      <FloatingQuickActions />
     </main>
   )
 }
