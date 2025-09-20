@@ -99,10 +99,10 @@ export function About() {
     title: "병원소개",
     subtitle: "4명의 수의사, 7명의 수의테크니션이 우리 아이들을 돌보고 있습니다.",
     background: {"image":"","video":"","color":"","opacity":0.1},
-    experienceCards: [{"icon":"graduation","title":"대표원장 이현석","period":"DVM, MS","description":"심장내과/일반내과"},{"icon":"graduation","title":"원장 노동훈","period":"DVM, GPcert(SADen&OS)","description":"치과/구강외과/일반외과"},{"icon":"graduation","title":"부원장 박준혁","period":"DVM","description":"일반내과/응급의학과"},{"icon":"graduation","title":"수의사 최인성","period":"DVM","description":"피부과/예방의학과"}],
-    skills: [{"icon":"star","title":"하이엔드 정밀심장초음파","description":"대학병원에서 사용하는 Canon의 Aplio 500을 사용하여 우리아이들의 심장진단에 활용하고 있습니다"},{"icon":"star","title":"경식도 심장초음파","description":"강아지 심장중재술(TEER)의 정확한 시술을 위하여 필립스의 경식도 심장초음파를 구비하고 있습니다"},{"icon":"star","title":"반려동물 치과전용 CT","description":"서남부권 최초로 치과전용 CT를 보유하고 있습니다.      30초의 짧은 촬영시간으로 정확한 진단이 가능합니다."},{"icon":"trophy","title":"수의사 대상 심장내과 세미나 강사","description":"대표원장은 다년간 임상수의사 대상으로 심장내과 및 심장초음파 실습강의를 진행하였습니다."},{"icon":"trophy","title":"유럽소동물 치과/구강외과 인정의 취득","description":"치과원장은 국내 최초로 2년간의 교육 및 실습, 케이스 발표 및 자격시험을 통하여 유럽 인정의 자격을 취득하였습니다. 추후 심화인정의 과정에도 참여가 예정되어 있습니다."}],
+    experienceCards: [{"icon":"graduation","title":"원장 이현석","period":"DVM, MS","description":"심장내과/일반내과"},{"icon":"graduation","title":"원장 노동훈","period":"DVM, GPcert(SADen&OS)","description":"치과/구강외과/일반외과"},{"icon":"graduation","title":"부원장 박준혁","period":"DVM","description":"일반내과/응급의학과"},{"icon":"graduation","title":"수의사 최인성","period":"DVM","description":"피부과/예방의학과"}],
+    skills: [{"icon":"star","title":"하이엔드 심장초음파","description":"대학병원에서 사용하는 Canon의 Aplio 500을 사용하여 우리아이들의 심장진단에 활용하고 있습니다"},{"icon":"star","title":"경식도 심장초음파","description":"강아지 심장중재술(TEER)의 정확한 시술을 위하여 필립스의 경식도 심장초음파를 구비하고 있습니다"},{"icon":"star","title":"반려동물 치과전용 CT","description":"서남부권 최초로 치과전용 CT를 보유하고 있습니다.      30초의 짧은 촬영시간으로 정확한 진단이 가능합니다."},{"icon":"trophy","title":"수의사 대상 심장세미나 강의","description":"대표원장은 다년간 임상수의사를 대상으로 심장내과(VMRC 외) 및 Sonoscape사의 심장초음파 실습강의를 진행했습니다."},{"icon":"trophy","title":"유럽 소동물 치과/구강외과 인정의","description":"치과원장은 국내 최초로 2년간의 교육 및 실습, 케이스 발표 및 자격시험을 통하여 유럽 인정의 자격을 취득하였습니다. 추후 심화인정의 과정에도 참여가 예정되어 있습니다."}],
     storyTitle: "치과/심장전문 이로동물의료센터는",
-    story: ["다년간 치과와 심장, 전문과목의 분과진료를 실시해오고 있습니다.","반려동물의 모든 치과질환의 진단 및 시술이 가능합니다.","심장질환의 진단, 관리 및 중재적 시술이 가능합니다.","365일 24시간, 의료진이 상주하여 입원환자를 관리합니다.","보호자의 입장에서 최선의 솔루션을 제공합니다."],
+    story: ["다년간 치과와 심장, 전문과목의 분과진료를 실시해오고 있습니다.","반려동물의 모든 치과질환 진단 및 시술이 가능합니다.","복잡한 심장질환의 진단, 관리 및 중재적 시술이 가능합니다.","365일 24시간, 의료진이 상주하여 입원환자를 관리합니다.","보호자의 입장에서 최선의 솔루션을 제공합니다."],
     storyImage: "/uploads/about-image-1758368158354.jpg",
     hobbies: []
   }

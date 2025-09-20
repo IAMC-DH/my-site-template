@@ -38,7 +38,7 @@ export function Hero() {
   const defaultInfo = {
     greeting: "반려동물 치과/심장전문",
     name: "이로동물의료센터",
-    title: "365일/24시간 입원환자관리",
+    title: "365일, 24시간 입원환자관리",
     description: "서울시 관악구 남부순환로 1678, 1층/2층",
     profileImage: "/uploads/hero-profile-1758378192646.jpg",
     backgroundImage: "",
