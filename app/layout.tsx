@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: "https://your-domain.com",
-    title: "나의 포트폴리오",
-    description: "창의적인 아이디어로 웹 경험을 디자인합니다.",
-    siteName: "나의 포트폴리오",
+    title: "이로동물의료센터",
+    description: "반려동물의 치과/심장전문 동물병원, 이로동물의료센터입니다.",
+    siteName: "이로동물의료센터",
     images: [
       {
         url: "/api/og-image", // 동적 OG 이미지 API
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "나의 포트폴리오",
-    description: "창의적인 아이디어로 웹 경험을 디자인합니다.",
+    title: "이로동물의료센터",
+    description: "반려동물의 치과/심장전문 동물병원, 이로동물의료센터입니다.",
     images: ["/api/og-image"],
   },
   robots: {

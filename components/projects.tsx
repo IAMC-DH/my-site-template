@@ -14,7 +14,7 @@ export function Projects() {
   // 기본 데이터
   const defaultInfo = {
     title: "진료과목안내",
-    subtitle: "치과/심장의 진료과목을 소개해 드립니다.",
+    subtitle: "치과/심장진료의 세부항목을 소개합니다.",
     initialDisplay: 6,
     loadMoreCount: 3,
     background: {"image":"","video":"","color":"","opacity":0.1},
