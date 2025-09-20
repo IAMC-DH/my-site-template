@@ -25,13 +25,12 @@ const ICON_MAP = {
 
 // 기본 데이터 (파일에는 문자열로 저장되지만 여기서는 컴포넌트로 변환)
 export const defaultConfig = {
-    logo: "포트폴리오",
+    logo: "이로동물의료센터",
     logoImage: "",
     showNavBar: true,
     showThemeToggle: true,
-    items: [{"name":"Home","url":"#hero","icon":"Home","show":true},{"name":"About","url":"#about","icon":"User","show":true},{"name":"Projects","url":"#projects","icon":"Briefcase","show":true},{"name":"Contact","url":"#contact","icon":"Mail","show":true},{"name":"갤러리","url":"#gallery","icon":"Camera","show":false},{"name":"블로그","url":"#blog","icon":"Book","show":false}],
-    siteTitle: "My portfolio",
-    siteDescription: "창의적인 아이디어로 웹 경험을 디자인합니다!"
+    items: [{"name":"Home","url":"#hero","icon":"Home","show":true},{"name":"병원소개","url":"#about","icon":"User","show":true},{"name":"진료과목","url":"#projects","icon":"Briefcase","show":true},{"name":"오시는길","url":"#contact","icon":"Mail","show":true},{"name":"갤러리","url":"#gallery","icon":"Camera","show":false},{"name":"블로그","url":"#blog","icon":"Book","show":false}],
+    siteTitle: "이로동물의료센터"
   }
 
 export function Header() {

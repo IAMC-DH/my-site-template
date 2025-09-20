@@ -13,17 +13,12 @@ export function Projects() {
   const { getData, saveData, isEditMode, saveToFile } = useInlineEditor()
   // 기본 데이터
   const defaultInfo = {
-    title: "프로젝트",
-    subtitle: "프로젝트",
+    title: "진료과목안내",
+    subtitle: "진료과목",
     initialDisplay: 6,
     loadMoreCount: 3,
-    background: {
-      image: "",
-      video: "",
-      color: "",
-      opacity: 0.1
-    },
-    projects: [] as Array<{ image: string; video?: string; title: string; description: string }>
+    background: {"image":"","video":"","color":"","opacity":0.1},
+    projects: [{"image":"/uploads/project-1758370445069-1758370445101.png","video":"","title":"심장정밀검진","description":"강아지와 고양이의 선천성/후천성 심장질환을 하이엔드초음파를 통해 정확하게 진단합니다"}] as Array<{ image: string; video?: string; title: string; description: string }>
   }
 
   const [projectsInfo, setProjectsInfo] = useState(defaultInfo)

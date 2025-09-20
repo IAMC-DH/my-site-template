@@ -33,18 +33,18 @@ export function Hero() {
   const { getData, saveData, isEditMode, saveToFile, saveFieldToFile } = useInlineEditor()
   
   // 초기 데이터 - 배열 형태로 변경
-  const defaultSocialLinks = [{"name":"Instagram","icon":"instagram","url":"https://instagram.com/username"},{"name":"YouTube","icon":"youtube","url":"https://youtube.com/@username"}]
+  const defaultSocialLinks = [{"name":"블로그","icon":"globe","url":"https://blog.naver.com/iroanimal"},{"name":"카카오톡채널","icon":"message","url":"https://pf.kakao.com/_xnfDCC?fbclid=PAZXh0bgNhZW0CMTEAAacxZOu7vIFf4YDYEwGOKGrNjfUTKvnW-aE2NpTU-FxKg0PvAWjKMlUCke3TGw_aem_AIAdqZeDplSMIDgTyvmV5Q"}]
   
   const defaultInfo = {
-    greeting: "안녕하세요,",
-    name: "당신의 이름",
-    title: "프론트엔드 개발자",
-    description: "창의적인 아이디어로 웹 경험을 디자인합니다.",
-    profileImage: "",
+    greeting: "반려동물 치과/심장전문",
+    name: "이로동물의료센터",
+    title: "365일 연중무휴, 24시간 입원관리",
+    description: "서울시 관악구 남부순환로 1678, 1층/2층",
+    profileImage: "/uploads/hero-profile-1758359207886.jpg",
     backgroundImage: "",
     backgroundVideo: "",
     backgroundOpacity: 0.1,
-    projectButton: "프로젝트 보기",
+    projectButton: "진료과목안내",
     background: {"image":"","video":"","color":"","opacity":0.1}
   }
 
