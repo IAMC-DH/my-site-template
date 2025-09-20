@@ -33,7 +33,7 @@ export function Hero() {
   const { getData, saveData, isEditMode, saveToFile, saveFieldToFile } = useInlineEditor()
   
   // 초기 데이터 - 배열 형태로 변경
-  const defaultSocialLinks = [{"name":"블로그","icon":"globe","url":"https://blog.naver.com/iroanimal"},{"name":"카카오톡채널","icon":"message","url":"https://pf.kakao.com/_xnfDCC?fbclid=PAZXh0bgNhZW0CMTEAAacxZOu7vIFf4YDYEwGOKGrNjfUTKvnW-aE2NpTU-FxKg0PvAWjKMlUCke3TGw_aem_AIAdqZeDplSMIDgTyvmV5Q"}]
+  const defaultSocialLinks = [{"name":"블로그","icon":"globe","url":"https://blog.naver.com/iroanimal"},{"name":"카카오톡채널","icon":"message","url":"http://pf.kakao.com/_xnfDCC/chat"}]
   
   const defaultInfo = {
     greeting: "반려동물 치과/심장전문",
